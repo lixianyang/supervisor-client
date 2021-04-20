@@ -13,7 +13,7 @@ var testClient *Client
 
 func TestMain(m *testing.M) {
 	var err error
-	testClient, err = New("http://user:123@127.0.0.1:9001", 5*time.Second)
+	testClient, err = New("http://user:123@127.0.0.1:9001", nil)
 	if err != nil {
 		fmt.Println("failed to create client", err)
 		os.Exit(1)

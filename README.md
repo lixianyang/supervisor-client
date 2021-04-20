@@ -15,7 +15,7 @@ import (
 )
 
 func main() {
-	client, err := sc.New("http://user:123@127.0.0.1:9001", 0)
+	client, err := sc.New("http://user:123@127.0.0.1:9001", nil)
 	if err != nil {
 		panic(err)
 	}

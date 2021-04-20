@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"net/http"
 	"syscall"
-	"time"
 
 	"github.com/kolo/xmlrpc"
 )
@@ -15,8 +14,7 @@ type Client struct {
 }
 
 // New Create new supervisor xml rpc client
-func New(url string, timeout time.Duration) (*Client, error) {
-	transport := &http.Transport{ResponseHeaderTimeout: timeout}
+func New(url string, transport http.RoundTripper) (*Client, error) {
 	rpcClient, err := xmlrpc.NewClient(url+"/RPC2", transport)
 	if err != nil {
 		return nil, err
